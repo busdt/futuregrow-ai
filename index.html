@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="CivicLens BD — Bangladesh civic information, sources, timeline and AI-assisted research.">
+  <title>CivicLens BD — Civic Intelligence Platform</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="CivicLens BD home">
+      <span class="brand-mark">CL</span>
+      <span><b>CivicLens</b><small>BD</small></span>
+    </a>
+    <nav class="nav">
+      <a href="#home">হোম</a><a href="#explore">এক্সপ্লোর</a><a href="#timeline">টাইমলাইন</a><a href="#evidence">এভিডেন্স</a><a href="#press">মিডিয়া</a>
+    </nav>
+    <button class="nav-cta" onclick="scrollToSection('assistant')">AI Assistant</button>
+  </header>
+
+  <main id="home">
+    <section class="hero section">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> OPEN CIVIC INTELLIGENCE · V1.0</div>
+        <h1>বাংলাদেশের তথ্যকে<br><span class="gradient-text">দেখুন, খুঁজুন, যাচাই করুন।</span></h1>
+        <p class="hero-lead">CivicLens BD একটি independent, source-first civic information platform—যেখানে timeline, documents, claims এবং public records এক জায়গায় সংগঠিত করা হয়।</p>
+        <div class="hero-actions">
+          <button class="primary" onclick="scrollToSection('explore')">Explore the platform <span>→</span></button>
+          <a class="secondary" href="press.html">Press & Media Kit</a>
+        </div>
+        <div class="hero-note">নোট: প্ল্যাটফর্মটি তথ্য উপস্থাপন করে; কোনো দল, প্রার্থী বা রাজনৈতিক সিদ্ধান্ত সমর্থন/বিরোধিতা করার জন্য তৈরি নয়।</div>
+      </div>
+      <div class="hero-panel">
+        <div class="orb orb-a"></div><div class="orb orb-b"></div>
+        <div class="dashboard-card">
+          <div class="dash-top"><span>LIVE RESEARCH ROOM</span><span class="status">● ONLINE</span></div>
+          <div class="searchbox"><span>⌕</span><input id="heroSearch" placeholder="যেমন: নির্বাচন, মামলা, আইন, রাজনৈতিক ইতিহাস..." onkeydown="if(event.key==='Enter') runSearch(this.value)"><button onclick="runSearch(document.getElementById('heroSearch').value)">Search</button></div>
+          <div class="mini-grid">
+            <div><span>Records</span><b id="statRecords">24+</b></div>
+            <div><span>Sources</span><b id="statSources">30+</b></div>
+            <div><span>Timeline</span><b id="statEvents">18</b></div>
+          </div>
+          <div class="scanline"></div>
+          <div class="signal-row"><span>Source-first indexing</span><strong>ACTIVE</strong></div>
+          <div class="signal-row"><span>AI-assisted retrieval</span><strong>READY</strong></div>
+          <div class="signal-row"><span>Public research mode</span><strong>OPEN</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats section">
+      <div class="stat"><span>01</span><b>Source-first</b><p>প্রতিটি record-এর সঙ্গে উৎস রাখার কাঠামো।</p></div>
+      <div class="stat"><span>02</span><b>Timeline</b><p>ঘটনা, তারিখ ও context একসঙ্গে দেখা যায়।</p></div>
+      <div class="stat"><span>03</span><b>AI-assisted</b><p>Local retrieval দিয়ে প্রশ্নের উত্তর খোঁজা।</p></div>
+      <div class="stat"><span>04</span><b>Press-ready</b><p>Public launch ও media research-এর জন্য তৈরি।</p></div>
+    </section>
+
+    <section id="explore" class="section">
+      <div class="section-head">
+        <div><div class="eyebrow">RESEARCH INDEX</div><h2>এক জায়গায় বহু ধরনের তথ্য</h2></div>
+        <div class="filter-row">
+          <button class="chip active" data-filter="all">সব</button>
+          <button class="chip" data-filter="timeline">টাইমলাইন</button>
+          <button class="chip" data-filter="claim">দাবি</button>
+          <button class="chip" data-filter="document">ডকুমেন্ট</button>
+          <button class="chip" data-filter="source">উৎস</button>
+        </div>
+      </div>
+      <div id="results" class="cards"></div>
+    </section>
+
+    <section id="assistant" class="section assistant-section">
+      <div class="assistant-wrap">
+        <div class="assistant-copy">
+          <div class="eyebrow">CIVIC AI · BETA</div>
+          <h2>প্রশ্ন করুন।<br>প্রথমে উৎস খুঁজুন।</h2>
+          <p>এই MVP-তে external paid API ছাড়াই local source retrieval চালু আছে। ফলাফল record-এর সঙ্গে মিলিয়ে দেখুন এবং প্রয়োজনে original source খুলুন।</p>
+          <div class="trust-line"><span>✓</span> No fabricated sources <span>✓</span> Source labels <span>✓</span> Human review recommended</div>
+        </div>
+        <div class="assistant-card">
+          <div class="chat-head"><span class="ai-dot"></span><div><b>CivicLens Assistant</b><small>Source-aware research mode</small></div></div>
+          <div id="chatLog" class="chat-log">
+            <div class="msg bot">স্বাগতম। কোনো বিষয় লিখুন—যেমন “নির্বাচন”, “ছাত্ররাজনীতি”, “আইন”, “টাইমলাইন”। আমি এই ডেমো ডেটাসেট থেকে প্রাসঙ্গিক record দেখাব।</div>
+          </div>
+          <form class="chat-input" onsubmit="askAssistant(event)">
+            <input id="assistantInput" autocomplete="off" placeholder="আপনার প্রশ্ন লিখুন...">
+            <button type="submit">Ask</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline" class="section dark-section">
+      <div class="section-head"><div><div class="eyebrow">CHRONOLOGY</div><h2>ইন্টারঅ্যাক্টিভ টাইমলাইন</h2></div><span class="muted">Demo dataset · verify before publication</span></div>
+      <div id="timelineList" class="timeline"></div>
+    </section>
+
+    <section id="evidence" class="section">
+      <div class="section-head"><div><div class="eyebrow">EVIDENCE ROOM</div><h2>দাবি বনাম উৎস</h2></div></div>
+      <div id="evidenceGrid" class="evidence-grid"></div>
+    </section>
+
+    <section class="section launch-panel">
+      <div>
+        <div class="eyebrow">TOMORROW-READY</div>
+        <h2>একটি polished public launch package</h2>
+        <p>Website, press page, project narrative এবং source policy—সব একই identity-তে।</p>
+      </div>
+      <a class="primary" href="press.html">Open Media Kit →</a>
+    </section>
+
+    <section id="press" class="section press-strip">
+      <div><span class="eyebrow">FOR JOURNALISTS</span><h2>Research করুন, source দেখুন, তারপর publish করুন.</h2></div>
+      <a href="press.html" class="secondary">Press & Media →</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div><div class="brand footer-brand"><span class="brand-mark">CL</span><span><b>CivicLens</b><small>BD</small></span></div><p>Independent civic information prototype.</p></div>
+    <div class="footer-links"><a href="#evidence">Evidence Policy</a><a href="press.html">Media Kit</a><a href="README.md">Project Docs</a></div>
+    <div class="footer-copy">© <span id="year"></span> CivicLens BD</div>
+  </footer>
+</div>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
